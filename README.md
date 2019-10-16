@@ -10,3 +10,7 @@
 git clone https://github.com/ipad0214/openweathermap-proxy.git
 ```
 
+- install dependencies
+```shell
+npm install
+```
