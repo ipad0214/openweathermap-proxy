@@ -29,5 +29,17 @@ export class ConfigRoutes {
                 fs.writeFileSync("./config.json", JSON.stringify(json));
                 res.send(fs.readFileSync("./config.json"));
             });
+
+        app.route("/config/pollingDuration")
+            .get((req: Request, res: Response) => {
+                let json:any = JSON.parse(fs.readFileSync("./config.json").toString());
+                res.send(json.pollingDuration);
+            })
+            .post((req: Request, res: Response) => {
+                let json:any = JSON.parse(fs.readFileSync("./config.json").toString());
+                json.pollingDuration = req.body.pollingDuration;
+                fs.writeFileSync("./config.json", JSON.stringify(json));
+                res.send(fs.readFileSync("./config.json"));
+            });
     }
 }
